@@ -1,0 +1,22 @@
+.navbar {
+  width: 100vw;
+  height: 6rem;
+  background: linear-gradient(to right, #672280, #A626D3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: beige;
+  padding: 10px;
+  p {
+    margin-right: 20px;
+  }
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  img {
+    height: 30px;
+    padding: 10px;
+  }
+}
