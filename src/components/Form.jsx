@@ -1,11 +1,16 @@
 import data from "../assets/data"
+import React from 'react'
+import Meme from "./Meme"
 
 export default function Form() {
+  const [memeImg, setMemeImg] = React.useState("")
+
   function handleClick () {
     const list = data.data.memes
     const rand = Math.floor(Math.random() * list.length)
     const meme = list[rand]
-    console.log(meme.url)
+    setMemeImg(meme.url)
+    console.log(memeImg)
   }
 
   return (
@@ -18,6 +23,7 @@ export default function Form() {
         <input type="submit" id="submit" value="Get a new meme image 🖼️" onClick={handleClick} />
       </div>
       <div className="meme">
+        <Meme url={memeImg} />
       </div>
     </div>
   )

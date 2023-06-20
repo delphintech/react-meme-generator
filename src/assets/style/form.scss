@@ -28,3 +28,11 @@
   height: 3.5rem;
   border: none;
 }
+
+.meme {
+  display: flex;
+  img {
+    width: 40rem;
+    margin: 0 auto;
+  }
+}
