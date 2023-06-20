@@ -31,8 +31,20 @@
 
 .meme {
   display: flex;
+  position: relative;
+  justify-content: center;
   img {
     width: 40rem;
     margin: 0 auto;
+  }
+  h3 {
+    position: absolute;
+    color: white;
+  }
+  .top {
+    top: 0px;
+  }
+  .bottom {
+    bottom: 0px;
   }
 }

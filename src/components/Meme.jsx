@@ -1,9 +1,9 @@
 export default function Meme ({img, topText, bottomText}) {
   return (
     <div className="meme">
-      {topText && <p>{topText}</p>}
+      {topText && <h3 className="top">{topText}</h3>}
       <img src={img} alt="meme image"/>
-      {bottomText && <p>{bottomText}</p>}
+      {bottomText && <h3 className="bottom">{bottomText}</h3>}
     </div>
   )
 }
