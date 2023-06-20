@@ -3,14 +3,14 @@ import React from 'react'
 import Meme from "./Meme"
 
 export default function Form() {
-  const [memeImg, setMemeImg] = React.useState("")
+  const [meme, setMeme] = React.useState({topText: 0, bottomText: 0, img: 0})
+
+  const [allMemes, setAllMemes] = React.useState(data.data.memes)
 
   function handleClick () {
-    const list = data.data.memes
-    const rand = Math.floor(Math.random() * list.length)
-    const meme = list[rand]
-    setMemeImg(meme.url)
-    console.log(memeImg)
+    const rand = Math.floor(Math.random() * allMemes.length)
+    const randMeme = allMemes[rand]
+    setMeme(prevMeme => ({...prevMeme, img: randMeme.url}))
   }
 
   return (
@@ -22,9 +22,7 @@ export default function Form() {
         </section>
         <input type="submit" id="submit" value="Get a new meme image 🖼️" onClick={handleClick} />
       </div>
-      <div className="meme">
-        <Meme url={memeImg} />
-      </div>
+      {meme.img && <Meme {...meme} />}
     </div>
   )
 }

@@ -1,5 +1,9 @@
-export default function Meme ({url}) {
+export default function Meme ({img, topText, bottomText}) {
   return (
-    <img src={url} alt="meme image"/>
+    <div className="meme">
+      {topText && <p>{topText}</p>}
+      <img src={img} alt="meme image"/>
+      {bottomText && <p>{bottomText}</p>}
+    </div>
   )
 }
