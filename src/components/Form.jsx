@@ -13,12 +13,22 @@ export default function Form() {
     setMeme(prevMeme => ({...prevMeme, img: randMeme.url}))
   }
 
+  function topForm(event) {
+    const text = event.target.value
+    setMeme(prevMeme => ({...prevMeme, topText: text}))
+  }
+
+  function bottomForm() {
+    const text = event.target.value
+    setMeme(prevMeme => ({...prevMeme, bottomText: text}))
+  }
+
   return (
     <div className="content">
       <div className="form">
         <section>
-          <input type="text" placeholder=" Top text" />
-          <input type="text" placeholder=" Bottom text" />
+          <input type="text" placeholder=" Top text" onChange={topForm} />
+          <input type="text" placeholder=" Bottom text" onChange={bottomForm} />
         </section>
         <input type="submit" id="submit" value="Get a new meme image 🖼️" onClick={handleClick} />
       </div>
