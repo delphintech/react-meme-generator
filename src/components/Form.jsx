@@ -22,8 +22,8 @@ export default function Form() {
     <div className="content">
       <div className="form">
         <section>
-          <input type="text" placeholder=" Top text" onChange={handleForm} name="topText" />
-          <input type="text" placeholder=" Bottom text" onChange={handleForm} name="bottomText" />
+          <input type="text" placeholder=" Top text" onChange={handleForm} name="topText" value={meme.topText}/>
+          <input type="text" placeholder=" Bottom text" onChange={handleForm} name="bottomText" value={meme.bottomText} />
         </section>
         <input type="submit" id="submit" value="Get a new meme image 🖼️" onClick={handleClick} />
       </div>
