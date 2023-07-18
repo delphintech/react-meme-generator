@@ -1,11 +1,11 @@
-import data from "../assets/data"
+// import data from "../assets/data"
 import React from 'react'
 import Meme from "./Meme"
 
 export default function Form() {
   const [meme, setMeme] = React.useState({topText: 0, bottomText: 0, img: 0})
 
-  const [allMemes] = React.useState(data.data.memes)
+  const [allMemes, setAllMeme] = React.useState([])
 
   function handleClick () {
     const rand = Math.floor(Math.random() * allMemes.length)
@@ -17,6 +17,12 @@ export default function Form() {
     setMeme(prevMeme => ({...prevMeme, [event.target.name]: event.target.value}))
   }
 
+  React.useEffect(() => {
+    console.log('API fetch')
+      fetch('https://api.imgflip.com/get_memes')
+      .then(res => res.json())
+      .then(data => setAllMeme(data.data.memes))
+  }, [])
 
   return (
     <div className="content">
