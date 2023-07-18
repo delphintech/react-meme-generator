@@ -3,14 +3,14 @@ import React from 'react'
 import Meme from "./Meme"
 
 export default function Form() {
-  const [meme, setMeme] = React.useState({topText: 0, bottomText: 0, img: 0})
+  const [meme, setMeme] = React.useState({topText: "", bottomText: "", img: ""})
 
   const [allMemes, setAllMeme] = React.useState([])
 
   function handleClick () {
     const rand = Math.floor(Math.random() * allMemes.length)
     const randMeme = allMemes[rand]
-    setMeme(prevMeme => ({...prevMeme, img: randMeme.url}))
+    setMeme({topText: "", bottomText: "", img: randMeme.url})
   }
 
   function handleForm(event) {
@@ -18,7 +18,6 @@ export default function Form() {
   }
 
   React.useEffect(() => {
-    console.log('API fetch')
       fetch('https://api.imgflip.com/get_memes')
       .then(res => res.json())
       .then(data => setAllMeme(data.data.memes))
